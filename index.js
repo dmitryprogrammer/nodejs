@@ -1,6 +1,8 @@
-const https = require("https");
+const server = require("./server");
+const db = require("./db");
+const logger = require("./logger")(module);
 
-https.createServer({}, (req, res) => {
-    res.writeHead(200);
-    res.end('hello world\n');
-}).listen(3000);
+db.connect();
+logger(db.getPhrase("Run successful"));
+
+server.server("test");
