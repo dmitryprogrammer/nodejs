@@ -4,7 +4,7 @@ function connect() {
     db = require("./users");
 }
 
-function getPhrase(name) {
+function logPhrase(name) {
     if (db[name]) {
         console.log(db[name]);
     } else {
@@ -12,5 +12,10 @@ function getPhrase(name) {
     }
 }
 
+function getPhrase(name) {
+    return db[name];
+}
+
 exports.connect = connect;
+exports.logPhrase = logPhrase;
 exports.getPhrase = getPhrase;
