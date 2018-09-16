@@ -24,7 +24,6 @@ function makePage(url) {
 }
 
 try {
-
     const page = makePage("index.htm");
     console.log(page);
 } catch (e) {
