@@ -1,7 +1,7 @@
 const http = require("http");
 const url = require("url");
-const _ = require("lodash");
 const server = new http.Server();
+const _ = require("lodash");
 /**
  * Creation web-server
  */
