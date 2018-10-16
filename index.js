@@ -17,3 +17,18 @@ server.on("request", (req, res) => {
     }
 });
 server.listen(8080);
+
+process.stdin.setEncoding("utf8");
+
+process.stdin.on("readable", () => {
+    const input = process.stdin.read();
+
+    if (input !== null) {
+        process.stdout.write(input);
+    }
+
+    const commnad = input.trim();
+    if (commnad === "exit") {
+        process.exit(0);
+    }
+});
