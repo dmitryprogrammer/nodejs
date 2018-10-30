@@ -7,7 +7,6 @@ const _ = require("lodash");
  */
 server.on("request", (req, res) => {
     const parsedUrl = url.parse(req.url, true);
-    console.log(parsedUrl.query);
 
     if (!_.isUndefined(res)) {
         res.writeHead(200, {"Content-type": "text/html"});
