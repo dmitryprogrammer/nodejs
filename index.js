@@ -10,7 +10,7 @@ server.on("request", (req, res) => {
 
     if (!_.isUndefined(res)) {
         res.writeHead(200, {"Content-type": "text/html"});
-        res.write("<h1 style='text-align: center;display:block;'>" + parsedUrl.query.message + "</h1>");
+        res.write("<h1 style='text-align: center;display:block;'>" + parsedUrl.query['message'] + "</h1>");
         res.write("<h1 style='text-align: center;display:block;'>Hello World!</h1>");
         res.end("<h1 style='text-align: center;display:block;'>Hello World!</h1>");
     }
@@ -26,8 +26,8 @@ process.stdin.on("readable", () => {
         process.stdout.write(input);
     }
 
-    const commnad = input.trim();
-    if (commnad === "exit") {
+    const command = input.trim();
+    if (command === "exit") {
         process.exit(0);
     }
 });
