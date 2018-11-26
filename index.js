@@ -1,13 +1,13 @@
-const express = require("express");
-const app = express();
-const port = 4200;
+const http = require("http");
 
-app.get("/", (requiest, response) => {
-  response.send("Hello from express");
-});
+const server = http.Server(function(req, res) {
 
-app.listen(port, (err) => {
-  if (err) {
-    return console.log(err);
-  }
-});
+}).listen(4200);
+
+setTimeout(() => {
+  server.close();
+}, 2500);
+
+setInterval(() => {
+  console.log(process.memoryUsage());
+}, 1000).unref();
