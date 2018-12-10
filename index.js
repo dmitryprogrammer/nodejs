@@ -1,13 +1,8 @@
-const http = require("http");
+const fs = require("fs");
 
-const server = http.Server(function(req, res) {
-
-}).listen(4200);
-
-setTimeout(() => {
-  server.close();
-}, 2500);
-
-setInterval(() => {
-  console.log(process.memoryUsage());
-}, 1000).unref();
+fs.readdir("./db", (err, dir) => {
+    console.log(dir);
+    fs.readFile(dir[0], (errF, file) => {
+        console.log(file.toString());
+    });
+});
