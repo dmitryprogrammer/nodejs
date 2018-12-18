@@ -1,8 +1,19 @@
 const fs = require("fs");
+const test = require("./db/test");
+console.log(test);
 
-fs.readdir("./db", (err, dir) => {
-    console.log(dir);
-    fs.readFile(dir[0], (errF, file) => {
-        console.log(file.toString());
+function readFiles() {
+    fs.readdir("./db", (err, dir) => {
+        console.log(dir);
+        dir.forEach(file => {
+            console.log(file);
+            fs.readFile(file, (errF, file) => {
+                if (!errF) {
+                    console.log(file ? file.toString() : file);
+                }
+            });
+        });
     });
-});
+}
+
+readFiles();
