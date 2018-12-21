@@ -1,15 +1,18 @@
 const fs = require("fs");
 const test = require("./db/test");
-console.log(test);
+const console = require("console").Console;
+const logStream = fs.createWriteStream("./db/log.txt");
+const errorStream = fs.createWriteStream("./db/err.txt");
+const logger = new console(logStream, errorStream);
 
 function readFiles() {
     fs.readdir("./db", (err, dir) => {
-        console.log(dir);
+        logger.log(dir);
         dir.forEach(file => {
-            console.log(file);
+            logger.log(file);
             fs.readFile(file, (errF, file) => {
                 if (!errF) {
-                    console.log(file ? file.toString() : file);
+                    logger.log(file ? file.toString() : file);
                 }
             });
         });
