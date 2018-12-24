@@ -1,8 +1,15 @@
-const {EventEmitter} = require("events");
-const ee = new EventEmitter;
+const {Server} = require("http");
+const server = new Server();
+const emit = server.emit;
+let counter = 0;
 
-ee.on("a", (data) => {
-    console.log(data);
+server.emit = function (event) {
+    console.log(event);
+    emit.apply(server, arguments);
+};
+
+server.listen(4200);
+
+server.on("request", (req, res) => {
+    res.end(`hello world ${++counter}`);
 });
-
-ee.emit("a", {test: "test"});
