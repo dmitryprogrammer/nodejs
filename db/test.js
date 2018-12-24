@@ -3,4 +3,5 @@ const testListSum = testList.reduce((previousValue, nextValue) => {
     return previousValue + nextValue;
 });
 
-module.exports = {list: testList, sum: testListSum};
+exports.list = testList;
+exports.sum = testListSum;
