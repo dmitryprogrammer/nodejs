@@ -8,7 +8,7 @@ server.listen(port);
 server.on("request", function(req, res) {
     const url = req.url === "/" ? "index" : req.url || "404";
     if (Boolean(url) && url !== "/favicon.ico") {
-        const fullPath = `${__dirname}/static-server/html${url}.html`;
+        const fullPath = `${__dirname}/static-server/html/${url}.html`;
         stat(fullPath, (err) => {
             if (err) {
                 //  404 page
