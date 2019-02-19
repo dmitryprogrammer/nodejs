@@ -1,7 +1,7 @@
 const {Server} = require("http");
 const {stat, createReadStream, readFile} = require("fs");
 const server = new Server();
-const port = 4200;
+const port = 3000;
 
 server.listen(port);
 

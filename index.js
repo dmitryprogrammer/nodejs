@@ -1,6 +1,10 @@
-const zlib = require("zlib");
-const gzip = zlib.createGzip();
-const fs = require("fs");
-const inp = fs.createReadStream("package.json");
-const out = fs.createWriteStream("input.txt.gz");
-inp.pipe(gzip).pipe(out);
+const app = require("express")();
+const port = 4200;
+
+app.get("/", (req, res) => {
+  res.send("Hello world");
+});
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`);
+});
