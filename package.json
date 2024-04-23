@@ -17,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/dpishchalka/nodejs/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/dpishchalka/nodejs#readme",
   "dependencies": {
     "bluebird": "^3.7.2",
